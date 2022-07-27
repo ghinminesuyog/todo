@@ -1,0 +1,68 @@
+@import "../../assets/variables.scss";
+
+.collection-content {
+    padding: 10px 40px;
+    width: 70%;
+    min-height: 0;
+    .collection-header {
+        margin-bottom: 15px;
+        .collection-name {
+            margin: 0;
+        }
+    }
+    .new-todo-pill {
+        border: 1px solid $secondary-background-color;
+        border-radius: 10px;
+        padding: 10px;
+        .add-circle {
+            background-color: #ff4081;
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+    }
+    .collection-body {
+        height: 100%;
+        overflow: auto;
+        .collection-todos {
+            .todo-header {
+                font-weight: 300;
+                font-size: 1vw;
+            }
+            .todo-pill {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                background-color: $secondary-background-color;
+                padding: 10px;
+                margin: 5px 0;
+                border-radius: 10px;
+                column-gap: 10px;
+                input {
+                    width: 100%;
+                }
+                .delete-task {
+                    opacity: 0;
+                    color: $primary-color;
+                    cursor: pointer;
+                }
+                &:hover {
+                    .delete-task {
+                        opacity: 1;
+                    }
+                }
+            }
+            .completedTask {
+                input {
+                    text-decoration: line-through $primary-color;
+                    text-decoration-thickness: 0.1px;
+                }
+            }
+        }
+    }
+}
+
+::ng-deep .mat-checkbox-frame {
+    border-color: $primary-color;
+    border-radius: 5px !important;
+}

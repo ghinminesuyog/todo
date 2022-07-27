@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/variables.scss";
+
+body {
+    background-color: $background-color;
+    font-family: $primary-font-family;
+    color: $font-color;
+}
+html,
+body,
+app-root {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4vw;
+    font-weight: 400;
+    overflow: hidden;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.space-between {
+    justify-content: space-between;
+}
+.align-center {
+    align-items: center;
+}
+.flex-100 {
+    flex: 1;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+.mat-menu-panel {
+    background-color: $secondary-background-color;
+}
+.mat-menu-item {
+    color: $font-color;
+    .mat-icon-no-color {
+        color: $font-color;
+    }
+}
+.mat-icon {
+    color: $white;
+}
+
+input {
+    background-color: transparent;
+    border-color: transparent;
+    caret-color: $primary-color;
+    outline: none;
+    color: $font-color;
+    font-size: 1.4vw;
+}
+
+*::placeholder {
+    /* WebKit, Blink, Edge */
+    color: $font-color !important;
+    opacity: 0.5;
+}

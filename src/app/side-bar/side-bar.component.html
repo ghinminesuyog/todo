@@ -1,0 +1,8 @@
+<ul class="sidenav-container">
+    <li class="sidenav-content flex-row" *ngFor="let collection of collections" (click)="selectCollection(collection)"
+        [ngClass]="{'selectedCollection' : selectedCollectionId === collection.id }">
+        <mat-icon>wysiwyg</mat-icon>
+        <input [(ngModel)]="collection.title" (keyup.enter)="renameCollection(collection.title)"
+            (keyup.blur)="renameCollection(collection.title)" placeholder="{{'collections.newCollection' |translate}}">
+    </li>
+</ul>

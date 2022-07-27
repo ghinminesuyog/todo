@@ -1,0 +1,11 @@
+@import "../../assets/variables.scss";
+
+.header-container {
+    background-color: $secondary-background-color;
+    .title {
+        color: $white;
+        .menu-btn {
+            padding-right: 10px;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+@import "../../assets/variables.scss";
+
+.sidenav-container {
+    background-color: $secondary-background-color;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    .sidenav-content {
+        cursor: pointer;
+        padding: 5px 20px;
+        align-items: center;
+        p {
+            padding-left: 10px;
+            margin: 8px;
+        }
+        &:hover, &.selectedCollection {
+            background-color: $background-color;
+        }
+        mat-icon {
+            border: 1px solid;
+            border-radius: 50%;
+            padding: 5px;
+            margin: 10px 0;
+            color: $white;
+        }
+        &:nth-child(odd) {
+            mat-icon {
+                background-color: $primary-color;
+                border-color: $primary-color;
+            }
+        }
+        &:nth-child(even) {
+            mat-icon {
+                background-color: $secondary-color;
+                border-color: $secondary-color;
+            }
+        }
+    }
+    // .selectedCollection {
+    //     background-color: $background-color;
+    // }
+}

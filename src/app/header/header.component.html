@@ -1,0 +1,12 @@
+<mat-toolbar class="header-container flex-row space-between">
+    <div class="title flex-row align-center">
+        <button class="menu-btn" mat-icon-button (click)="toggleSidebarMenu()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-icon>dashboard</mat-icon>
+        <span> {{'dashboard' |translate}} </span>
+    </div>
+    <button mat-mini-fab (click)="addNewCollection()">
+        <mat-icon>add</mat-icon>
+    </button>
+</mat-toolbar>

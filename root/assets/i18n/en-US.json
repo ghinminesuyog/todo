@@ -1,0 +1,19 @@
+{
+    "dashboard": "Dashboard",
+    "collections": {
+        "newCollection": "Enter Collection Name",
+        "title": "Collections",
+        "deleteCollection": "Delete Collection"
+    },
+    "todo": {
+        "tasks": "Tasks",
+        "completed": "Completed",
+        "clearAll": "Clear All",
+        "doAll": "Mark all as complete",
+        "undoAll": "Mark all as to-do",
+        "removeAllCompleted": "Remove all completed tasks",
+        "newTask": {
+            "title": "Add new task"
+        }
+    }
+}

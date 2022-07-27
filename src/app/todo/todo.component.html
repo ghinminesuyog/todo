@@ -1,0 +1,70 @@
+<div *ngIf="collection" class="collection-content flex-column">
+
+    <div class="collection-header flex-row space-between">
+        <input class="collection-name" [(ngModel)]="collection.title" (keyup.enter)="renameCollection(collection.title)"
+            (keyup.blur)="renameCollection(collection.title)" placeholder="{{'collections.newCollection' |translate}}">
+
+        <button mat-icon-button [matMenuTriggerFor]="collectionsOptionsMenu">
+            <mat-icon>more_horiz</mat-icon>
+            <mat-menu #collectionsOptionsMenu="matMenu">
+                <button mat-menu-item (click)="markAllAsDone()">
+                    <mat-icon>done_all</mat-icon>
+                    <span>{{'todo.doAll' | translate}} </span>
+                </button>
+                <button mat-menu-item (click)="markAllAsTodo()">
+                    <mat-icon>remove_done</mat-icon>
+                    <span>{{'todo.undoAll' | translate}} </span>
+                </button>
+                <button mat-menu-item (click)="clearAll()">
+                    <mat-icon>clear_all</mat-icon>
+                    <span>{{'todo.clearAll' | translate}} </span>
+                </button>
+                <button mat-menu-item (click)="removeAllCompleted()">
+                    <mat-icon>playlist_remove</mat-icon>
+                    <span>{{'todo.removeAllCompleted' | translate}} </span>
+                </button>
+                <button mat-menu-item (click)="deleteCollection()">
+                    <mat-icon>delete</mat-icon>
+                    <span>{{'collections.deleteCollection' | translate}} </span>
+                </button>
+            </mat-menu>
+        </button>
+    </div>
+
+    <div class="flex-row new-todo-pill">
+        <mat-icon class="add-circle" color="accent" (click)="addNewTask()">add</mat-icon>
+        <input class="flex-100" matInput type="text" [(ngModel)]="newTaskTitle"
+            placeholder="{{'todo.newTask.title' |translate}}" (keyup.enter)="addNewTask()">
+    </div>
+
+    <div class="collection-body">
+        <ul class="collection-todos">
+            <p class="todo-header">{{'todo.tasks' | translate}}
+                <span> - </span>
+                <span>{{collection.todos.length}}</span>
+            </p>
+            <li class="todo-pill" *ngFor="let todo of collection.todos"
+                [ngClass]="{'completedTask': todo.isDone === true}">
+                <mat-checkbox [(ngModel)]="todo.isDone" (click)="toggleDoneStatus(todo)">
+                </mat-checkbox>
+                <input [(ngModel)]="todo.title" (keyup.enter)="changeTaskTitle(collection.id,todo.id)"
+                    (keyup.blur)="changeTaskTitle(collection.id,todo.id)">
+                <mat-icon class="delete-task" (click)="deleteTask(todo)">delete</mat-icon>
+            </li>
+        </ul>
+
+        <ul class="collection-todos">
+            <p class="todo-header">{{'todo.completed' | translate}}
+                <span> - </span>
+                <span>{{collection.completedTasks.length}}</span>
+            </p>
+            <li class="todo-pill completedTask" *ngFor="let todo of collection.completedTasks">
+                <mat-checkbox [(ngModel)]="todo.isDone" (click)="toggleDoneStatus(todo)">
+                </mat-checkbox>
+                <input [(ngModel)]="todo.title" (keyup.enter)="changeTaskTitle(collection.id,todo.id)"
+                    (keyup.blur)="changeTaskTitle(collection.id,todo.id)">
+                <mat-icon class="delete-task" (click)="deleteTask(todo)">delete</mat-icon>
+            </li>
+        </ul>
+    </div>
+</div>
